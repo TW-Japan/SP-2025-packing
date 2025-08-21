@@ -1,7 +1,5 @@
 # 🧳 Japan – Steph and Sarah's Packing Guide (2025)
-
 This repositor provides a mobile-optimised, colour-coded, and collapsible task list for Steph and Sarah's Japan trip.
-
 Designed to visually track responsibilities and packing status across family members.
 
 ## ✅ Live Site
