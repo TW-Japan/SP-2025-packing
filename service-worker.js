@@ -11,12 +11,12 @@ const APP_SHELL = [
   '/SP-2025-packing/offline.html',
 ];
 
-self.addEventListener('install', (event) => {
+self.addEventListener('install', event => {
   self.skipWaiting();
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)));
 });
 
-self.addEventListener('activate', (event) => {
+self.addEventListener('activate', event => {
   event.waitUntil((async () => {
     const keys = await caches.keys();
     await Promise.all(keys.filter(k => k.startsWith('sp-2025-packing-') && k !== CACHE_NAME).map(k => caches.delete(k)));
@@ -28,7 +28,7 @@ self.addEventListener('activate', (event) => {
   })());
 });
 
-self.addEventListener('fetch', (event) => {
+self.addEventListener('fetch', event => {
   const { request } = event;
   if (request.mode === 'navigate') {
     event.respondWith(networkFirstNavigation(request));
